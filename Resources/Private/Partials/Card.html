@@ -1,0 +1,188 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:image class="img-circle" image="{address.image.0}"/>
+<h4>{address.name}</h4>
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a href="#tab-personal-{address.uid}" data-toggle="tab">Personal</a>
+    </li>
+    <li>
+        <a href="#tab-contact-{address.uid}" data-toggle="tab">Contact</a>
+    </li>
+    <li>
+        <a href="#tab-business-{address.uid}" data-toggle="tab">Business</a>
+    </li>
+    <li>
+        <a href="#tab-social-media-{address.uid}" data-toggle="tab">Social Media</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div id="tab-personal-{address.uid}" class="tab-pane active">
+        <table class="table table-striped table-bordered">
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address_palette.name"/>
+                    :
+                </td>
+                <td>{address.name}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.gender"/>
+                </td>
+                <td>
+                    <f:switch expression="{address.gender}">
+                        <f:case value="m">
+                            <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.gender.m"/>
+                        </f:case>
+                        <f:case value="f">
+                            <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.gender.f"/>
+                        </f:case>
+                    </f:switch>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.first_name"/>
+                </td>
+                <td>{address.firstname}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.middle_name"/>
+                </td>
+                <td>{address.middlename}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.last_name"/>
+                </td>
+                <td>{address.lastname}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.birthday"/>
+                </td>
+                <td>
+                    <f:format.date>{address.birthday}</f:format.date>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="tab-contact-{address.uid}" class="tab-pane">
+        <table class="table table-striped table-bordered">
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address"/>
+                </td>
+                <td>{address.address}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate
+                            key="LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.city"/>
+                </td>
+                <td>{address.city}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.region"/>
+                </td>
+                <td>{address.region}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate
+                            key="LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.email"/>
+                </td>
+                <td>{address.email}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate
+                            key="LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.fax"/>
+                </td>
+                <td>{address.fax}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate
+                            key="LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.phone"/>
+                </td>
+                <td>{address.phone}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.mobile"/>
+                </td>
+                <td>{address.mobile}</td>
+            </tr>
+        </table>
+    </div>
+    <div id="tab-business-{address.uid}" class="tab-pane">
+        <table class="table table-striped table-bordered">
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.position"/>
+                </td>
+                <td>{address.position}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.organization"/>
+                </td>
+                <td>{address.company}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.building"/>
+                </td>
+                <td>{address.building}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.room"/>
+                </td>
+                <td>{address.room}</td>
+            </tr>
+        </table>
+    </div>
+    <div id="tab-social-media-{address.uid}" class="tab-pane">
+        <table class="table table-striped table-bordered">
+            <tr>
+                <td>
+                    <f:translate
+                            key="LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.www"/>
+                </td>
+                <td>{address.www}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.skype"/>
+                </td>
+                <td>{address.skype}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.twitter"/>
+                </td>
+                <td>{address.twitter}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.facebook"/>
+                </td>
+                <td>{address.facebook}</td>
+            </tr>
+            <tr>
+                <td>
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address.linkedin"/>
+                </td>
+                <td>{address.linkedin}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+

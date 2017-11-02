@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-09-21T11:12:29Z" product-name="cyz_address">
+		<header/>
+		<body>
+			<trans-unit id="cyz_address.settings.source">
+				<source>Source</source>
+			</trans-unit>
+			<trans-unit id="cyz_address.settings.single_addresses">
+            	<source>Single Addresses</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.settings.categories">
+                <source>Categories</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.settings.startingpoint">
+                <source>Startingpoint</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.settings.singleRecords">
+                <source>Single Records</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.settings.groupSelection">
+                <source>Categories</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.settings.groupSelectionConstraint">
+                <source>Logical Constraint</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.settings.pages">
+                <source>Startingpoint</source>
+            </trans-unit>
+
+            <trans-unit id="cyz_address.city">
+                <source>City:</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.title">
+                <source>Title:</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.email">
+                <source>Email:</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.fax">
+                <source>Fax:</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.phone">
+                <source>Phone:</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.www">
+                <source>Website:</source>
+            </trans-unit>
+
+            <trans-unit id="cyz_address.wiz_title">
+                <source>Addresses (fluid)</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.wiz_description">
+                <source>Displays one or more addresses with fluid template</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

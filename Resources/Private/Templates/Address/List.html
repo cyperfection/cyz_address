@@ -1,0 +1,13 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:flashMessages renderMode="div"/>
+
+
+<ul class="list-group">
+    <f:for each="{addresses}" as="address">
+        <li class="list-group-item">
+            <f:render partial="Card" arguments="{address:address}">
+            </f:render>
+        </li>
+    </f:for>
+</ul>
