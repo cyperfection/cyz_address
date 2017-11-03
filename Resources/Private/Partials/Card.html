@@ -1,6 +1,8 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
-<f:image class="img-circle" image="{address.image.0}"/>
+<f:for each="{address.image}" as="image">
+    <f:image class="img-circle" image="{image}" alt=""/>
+</f:for>
 <h4>{address.name}</h4>
 <ul class="nav nav-tabs">
     <li class="active">
@@ -21,8 +23,7 @@
         <table class="table table-striped table-bordered">
             <tr>
                 <td>
-                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address_palette.name"/>
-                    :
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address_palette.name"/>:
                 </td>
                 <td>{address.name}</td>
             </tr>
