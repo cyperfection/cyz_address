@@ -1,4 +1,4 @@
-plugin.tx_cyz_address {
+plugin.tx_cyzaddress {
     view {
         templateRootPaths.0 = EXT:cyz_address/Resources/Private/Templates/
         templateRootPaths.1 = {$plugin.tx_cyz_address.view.templateRootPath}
