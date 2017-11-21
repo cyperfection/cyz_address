@@ -3,7 +3,7 @@ mod.wizards {
         plugins {
             elements {
                 plugins_tx_cyzaddress {
-                    icon = EXT:cyz_address/ce_wiz.svg
+                    iconIdentifier = ext-new-wizard-icon
                     title = LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.wiz_title
                     description = LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.wiz_description
                     tt_content_defValues {
