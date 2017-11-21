@@ -5,3 +5,4 @@ plugin.tx_cyzaddress {
         layoutRootPath = EXT:cyz_address/Resources/Private/Layouts/
     }
 }
+

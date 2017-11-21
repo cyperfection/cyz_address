@@ -1,12 +1,23 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
-<f:flashMessages/>
+<f:layout name="default"/>
+
+<f:section name="content">
+
+    <f:flashMessages/>
 
 
-<ul class="list-group">
-    <f:for each="{addresses}" as="address">
-        <li class="list-group-item">
-            <f:render partial="Card" arguments="{address:address}"/>
-        </li>
-    </f:for>
-</ul>
+    <f:switch expression="{settings.layout}">
+        <f:defaultCase>
+            <ul class="list-group">
+                <f:for each="{addresses}" as="address">
+                    <li class="list-group-item">
+                        <f:render partial="Card" arguments="{address:address}"/>
+                    </li>
+                </f:for>
+            </ul>
+        </f:defaultCase>
+    </f:switch>
+
+
+</f:section>

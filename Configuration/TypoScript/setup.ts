@@ -26,4 +26,3 @@ config.tx_extbase {
         }
     }
 }
-
