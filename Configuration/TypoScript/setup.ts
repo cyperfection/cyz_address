@@ -1,11 +1,11 @@
 plugin.tx_cyzaddress {
     view {
         templateRootPaths.0 = EXT:cyz_address/Resources/Private/Templates/
-        templateRootPaths.1 = {$plugin.tx_cyz_address.view.templateRootPath}
+        templateRootPaths.1 = {$plugin.tx_cyzaddress.view.templateRootPath}
         partialRootPaths.0 = EXT:cyz_address/Resources/Private/Partials/
-        partialRootPaths.1 = {$plugin.tx_cyz_address.view.partialRootPath}
+        partialRootPaths.1 = {$plugin.tx_cyzaddress.view.partialRootPath}
         layoutRootPaths.0 = EXT:cyz_address/Resources/Private/Layouts/
-        layoutRootPaths.1 = {$plugin.tx_cyz_address.view.layoutRootPath}
+        layoutRootPaths.1 = {$plugin.tx_cyzaddress.view.layoutRootPath}
     }
 }
 

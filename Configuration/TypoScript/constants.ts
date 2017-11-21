@@ -1,4 +1,4 @@
-plugin.tx_cyaddress {
+plugin.tx_cyzaddress {
     view {
         templateRootPath = EXT:cyz_address/Resources/Private/Templates/
         partialRootPath = EXT:cyz_address/Resources/Private/Partials/
