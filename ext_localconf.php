@@ -12,6 +12,10 @@ call_user_func(
             ]
         );
 
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
+        <INCLUDE_TYPOSCRIPT: source="FILE:EXT:cyz_address/Configuration/TSconfig/NewContentElementWizard.ts">
+        <INCLUDE_TYPOSCRIPT: source="FILE:EXT:cyz_address/Configuration/TSconfig/Page/Layouts.ts">');
+
         if (TYPO3_MODE === 'BE') {
             $icons = ['ext-new-wizard-icon' => 'ce_wiz.svg',];
 
