@@ -13,11 +13,11 @@
                 <f:for each="{addresses}" as="address">
                     <li class="list-group-item">
                         <f:render partial="Card" arguments="{address:address}"/>
+                        <f:link.action action="show" arguments="{address:address}">Single view</f:link.action>
                     </li>
                 </f:for>
             </ul>
         </f:defaultCase>
     </f:switch>
-
 
 </f:section>

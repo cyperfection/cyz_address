@@ -8,7 +8,7 @@ call_user_func(
             'Cyz.CyzAddress',
             'Address',
             [
-                'Address' => 'list',
+                'Address' => 'list, show',
             ]
         );
 

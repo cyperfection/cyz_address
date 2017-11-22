@@ -30,6 +30,9 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     protected $addressRepository = null;
 
+    /**
+     * list action
+     */
     public function listAction()
     {
         switch ($this->settings['source']) {
@@ -84,5 +87,15 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                     AbstractMessage::ERROR,
                     FALSE);
         }
+    }
+
+    /**
+     * show action
+     *
+     * @param \Cyz\CyzAddress\Domain\Model\Address $address
+     */
+    public function showAction(\Cyz\CyzAddress\Domain\Model\Address $address)
+    {
+        $this->view->assign('address', $address);
     }
 }
