@@ -1,0 +1,24 @@
+{
+  "name": "cyz/cyz-address",
+  "type": "typo3-cms-extension",
+  "description": "Makes it possible to use fluid templates with tt_address",
+  "authors": [
+    {
+      "name": "Luca Kredel",
+      "email": "luca.kredel@cyperfection.de"
+    }
+  ],
+  "require": {
+    "typo3/cms-core": ">=6.2.0",
+    "php": ">=5.4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Cyz\\CyzAddress\\": "Classes/"
+    }
+  },
+  "replace": {
+    "cyz_address": "self.version",
+    "typo3-ter/cyz_address": "self.version"
+  }
+}
