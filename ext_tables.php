@@ -30,7 +30,7 @@ call_user_func(
             $pluginName,
             'Cyz_Address - Address'
         );
-
+        
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($extKey, 'Configuration/TypoScript', 'Addresses');
 
         $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature] = 'layout,select_key,pages,recursive';

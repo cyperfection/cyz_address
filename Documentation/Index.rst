@@ -14,35 +14,35 @@ Address List
 .. only:: html
 
     :Classification:
-            tt_address fluid template
+        tt_address fluid template
 
-        :Version:
-            |release|
+    :Version:
+        |release|
 
     :Language:
             en
 
-        :Description:
-            Allows to use fluid templates with tt_address
+    :Description:
+        Allows to use fluid templates with tt_address
 
-        :Keywords:
-            tt_address, fluid
+    :Keywords:
+        tt_address, fluid
 
-        :Copyright:
-            2017
+    :Copyright:
+        2017
 
-        :Author:
-            Luca Kredel
+    :Author:
+        Luca Kredel
 
-        :Email:
-            luca.kredel@cyperfection.de
+    :Email:
+        luca.kredel@cyperfection.de
 
-        :License:
-            This document is published under the Open Publication License
-            available from http://www.opencontent.org/openpub/
+    :License:
+        This document is published under the Open Publication License
+        available from http://www.opencontent.org/openpub/
 
     :Rendered:
-            |today|
+        |today|
 
     The content of this document is related to TYPO3,
     a GNU/GPL CMS/Framework available from `www.typo3.org <https://typo3.org/>`__.
@@ -51,10 +51,10 @@ Address List
     **Table of Contents**
 
 .. toctree::
-:maxdepth: 3
-        :titlesonly:
+    :maxdepth: 3
+    :titlesonly:
 
-        Introduction/Index
-        UsersManual/Index
-        KnownProblems/Index
-        TodoList/Index
+    Introduction/Index
+    UsersManual/Index
+    KnownProblems/Index
+    TodoList/Index
