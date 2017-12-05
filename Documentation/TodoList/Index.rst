@@ -7,5 +7,3 @@
 
 
 .. _todo-list:
-
-- Add Single View (show action)

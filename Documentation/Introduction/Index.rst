@@ -21,4 +21,4 @@ Screenshots
 
 This is the plugin with the page selector active.
 
-.. image:: ../Images/image-1.png
+.. image:: ../Images/Image-1.png
