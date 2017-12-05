@@ -4,5 +4,14 @@ plugin.tx_cyzaddress {
         partialRootPath = EXT:cyz_address/Resources/Private/Partials/
         layoutRootPath = EXT:cyz_address/Resources/Private/Layouts/
     }
+
+    settings {
+        defaultProfilePicture {
+            active = true
+            path = EXT:cyz_address/Resources/Public/Images/default-profile-image.svg
+            width = 100
+            height = NULL
+        }
+    }
 }
 

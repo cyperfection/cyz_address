@@ -10,10 +10,10 @@ plugin.tx_cyzaddress {
 
     settings {
         defaultProfilePicture {
-            active = true
-            path = EXT:cyz_address/Resources/Public/Images/default-profile-image.svg
-            width = 100
-            height = NULL
+            active = {$plugin.tx_cyzaddress.settings.defaultProfilePicture.active}
+            path = {$plugin.tx_cyzaddress.settings.defaultProfilePicture.path}
+            width = {$plugin.tx_cyzaddress.settings.defaultProfilePicture.width}
+            height = {$plugin.tx_cyzaddress.settings.defaultProfilePicture.height}
         }
     }
 }
