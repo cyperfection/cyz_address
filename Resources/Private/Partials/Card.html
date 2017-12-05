@@ -1,9 +1,20 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
 
-<f:for each="{address.image}" as="image">
-    <f:image class="img-circle" image="{image}" alt=""/>
-</f:for>
+<f:if condition="{address.image}">
+    <f:then>
+        <f:for each="{address.image}" as="image">
+            <f:image class="img-circle" image="{image}" alt=""/>
+        </f:for>
+    </f:then>
+    <f:else>
+        <f:if condition="{settings.defaultProfilePicture.active}">
+            <f:image src="{settings.defaultProfilePicture.path}" width="{settings.defaultProfilePicture.width}"
+                    height="{settings.defaultProfilePicture.height}" alt="default profile picture" />
+        </f:if>
+    </f:else>
+</f:if>
+
 <h4>{address.name}</h4>
 <ul class="nav nav-tabs">
     <li class="active">

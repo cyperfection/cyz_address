@@ -7,6 +7,15 @@ plugin.tx_cyzaddress {
         layoutRootPaths.0 = EXT:cyz_address/Resources/Private/Layouts/
         layoutRootPaths.1 = {$plugin.tx_cyzaddress.view.layoutRootPath}
     }
+
+    settings {
+        defaultProfilePicture {
+            active = true
+            path = EXT:cyz_address/Resources/Public/Images/default-profile-image.svg
+            width = 100
+            height = NULL
+        }
+    }
 }
 
 config.tx_extbase {
