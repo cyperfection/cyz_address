@@ -34,6 +34,12 @@ call_user_func(
         <INCLUDE_TYPOSCRIPT: source="FILE:EXT:cyz_address/Configuration/TSconfig/NewContentElementWizard.ts">
         <INCLUDE_TYPOSCRIPT: source="FILE:EXT:cyz_address/Configuration/TSconfig/Page/Layouts.ts">');
 
+
+        if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('realurl')) {
+            $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/realurl/class.tx_realurl_autoconfgen.php']['extensionConfiguration']['cyz_address'] =
+                \Cyz\CyzAddress\Hooks\RealUrlAutoConfiguration::class . '->addAddressConfig';
+        }
+
         if (TYPO3_MODE === 'BE') {
             $icons = ['ext-new-wizard-icon' => 'ce_wiz.svg',];
 

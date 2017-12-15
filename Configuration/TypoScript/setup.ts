@@ -16,6 +16,10 @@ plugin.tx_cyzaddress {
             height = {$plugin.tx_cyzaddress.settings.defaultProfilePicture.height}
         }
     }
+
+    features {
+        skipDefaultArguments = 1
+    }
 }
 
 config.tx_extbase {
