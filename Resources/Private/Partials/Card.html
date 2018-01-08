@@ -10,7 +10,7 @@
     <f:else>
         <f:if condition="{settings.defaultProfilePicture.active}">
             <f:image src="{settings.defaultProfilePicture.path}" width="{settings.defaultProfilePicture.width}"
-                    height="{settings.defaultProfilePicture.height}" alt="default profile picture" />
+                     height="{settings.defaultProfilePicture.height}" alt="default profile picture"/>
         </f:if>
     </f:else>
 </f:if>
@@ -29,13 +29,17 @@
     <li>
         <a href="#tab-social-media-{address.uid}" data-toggle="tab">Social Media</a>
     </li>
+    <li>
+        <a href="#tab-categories-{address.uid}" data-toggle="tab">Categories</a>
+    </li>
 </ul>
 <div class="tab-content">
     <div id="tab-personal-{address.uid}" class="tab-pane active">
         <table class="table table-striped table-bordered">
             <tr>
                 <td>
-                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address_palette.name"/>:
+                    <f:translate key="LLL:EXT:tt_address/locallang_tca.xml:tt_address_palette.name"/>
+                    :
                 </td>
                 <td>{address.name}</td>
             </tr>
@@ -195,7 +199,20 @@
             </tr>
         </table>
     </div>
+    <div id="tab-categories-{address.uid}" class="tab-pane">
+        <table class="table table-striped table-bordered">
+            <f:for each="{address.categories}" as="category">
+                <tr>
+                    <td>
+                        {category.title}
+                    </td>
+                </tr>
+            </f:for>
+        </table>
+    </div>
 </div>
+
+
 
 
 
