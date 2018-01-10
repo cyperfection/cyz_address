@@ -87,6 +87,9 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                     AbstractMessage::ERROR,
                     FALSE);
         }
+
+        $cObj = $this->configurationManager->getContentObject();
+        $this->view->assign('data', $cObj->data);
     }
 
     /**
@@ -97,5 +100,8 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     public function showAction(\Cyz\CyzAddress\Domain\Model\Address $address)
     {
         $this->view->assign('address', $address);
+
+        $cObj = $this->configurationManager->getContentObject();
+        $this->view->assign('data', $cObj->data);
     }
 }
