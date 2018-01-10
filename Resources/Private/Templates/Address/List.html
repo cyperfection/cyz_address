@@ -13,7 +13,9 @@
                     <li class="list-group-item">
                         <f:render partial="Card" arguments="{address:address}"/>
                         <f:link.action action="show" arguments="{address:address}"
-                                       pageUid="{settings.singleViewPageUid}">Single view
+                                       pageUid="{settings.singleViewPageUid}">
+                            <f:translate
+                                    key="LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.template.singleView"/>
                         </f:link.action>
                     </li>
                 </f:for>

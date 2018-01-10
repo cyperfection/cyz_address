@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2017-09-21T11:12:29Z" product-name="cyz_address">
-		<header/>
-		<body>
-			<trans-unit id="cyz_address.settings.source">
-				<source>Source</source>
-			</trans-unit>
-			<trans-unit id="cyz_address.settings.single_addresses">
-            	<source>Single Addresses</source>
+    <file source-language="en" datatype="plaintext" original="messages" date="2017-09-21T11:12:29Z"
+          product-name="cyz_address">
+        <header/>
+        <body>
+            <!--Flexform Labels-->
+            <trans-unit id="cyz_address.settings.source">
+                <source>Source</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.settings.single_addresses">
+                <source>Single Addresses</source>
             </trans-unit>
             <trans-unit id="cyz_address.settings.categories">
                 <source>Categories</source>
@@ -27,7 +29,14 @@
             <trans-unit id="cyz_address.settings.pages">
                 <source>Startingpoint</source>
             </trans-unit>
+            <trans-unit id="cyz_address.settings.singleViewPage">
+                <source>Single View Page</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.settings.listViewPage">
+                <source>List View Page</source>
+            </trans-unit>
 
+            <!--Address Card Partial-->
             <trans-unit id="cyz_address.city">
                 <source>City:</source>
             </trans-unit>
@@ -47,12 +56,20 @@
                 <source>Website:</source>
             </trans-unit>
 
+            <!--Wizard-->
             <trans-unit id="cyz_address.wiz_title">
                 <source>Addresses (fluid)</source>
             </trans-unit>
             <trans-unit id="cyz_address.wiz_description">
                 <source>Displays one or more addresses with fluid template</source>
             </trans-unit>
-		</body>
-	</file>
+
+            <trans-unit id="cyz_address.template.singleView">
+                <source>Single View</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.template.back">
+                <source>Back</source>
+            </trans-unit>
+        </body>
+    </file>
 </xliff>

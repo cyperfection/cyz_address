@@ -173,7 +173,7 @@
                 <el>
                     <settings.singleViewPageUid>
                         <TCEforms>
-                            <label>Single View Page</label>
+                            <label>LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.settings.singleViewPage</label>
                             <config>
                                 <type>group</type>
                                 <internal_type>db</internal_type>
@@ -187,7 +187,7 @@
                     </settings.singleViewPageUid>
                     <settings.listViewPageUid>
                         <TCEforms>
-                            <label>List View Page</label>
+                            <label>LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.settings.listViewPage</label>
                             <config>
                                 <type>group</type>
                                 <internal_type>db</internal_type>

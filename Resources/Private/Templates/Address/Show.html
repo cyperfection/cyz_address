@@ -6,10 +6,13 @@
 <f:section name="content">
     <f:switch expression="{settings.layout}">
         <f:defaultCase>
-            
+
             <f:if condition="{address}">
                 <f:render partial="Card" arguments="{address:address}"/>
-                <f:link.action action="list" pageUid="{settings.listViewPageUid}">Back</f:link.action>
+                <f:link.action action="list" pageUid="{settings.listViewPageUid}">
+                    <f:translate
+                            key="LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.template.back"/>
+                </f:link.action>
             </f:if>
         </f:defaultCase>
     </f:switch>
