@@ -6,14 +6,15 @@
 
     <f:flashMessages/>
 
-
     <f:switch expression="{settings.layout}">
         <f:defaultCase>
             <ul class="list-group">
                 <f:for each="{addresses}" as="address">
                     <li class="list-group-item">
                         <f:render partial="Card" arguments="{address:address}"/>
-                        <f:link.action action="show" arguments="{address:address}">Single view</f:link.action>
+                        <f:link.action action="show" arguments="{address:address}"
+                                       pageUid="{settings.singleViewPageUid}">Single view
+                        </f:link.action>
                     </li>
                 </f:for>
             </ul>

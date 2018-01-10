@@ -145,7 +145,6 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
-
                     <settings.layout>
                         <TCEforms>
                             <label>Layouts</label>
@@ -165,5 +164,43 @@
                 </el>
             </ROOT>
         </layout>
+        <targetPages>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Target Pages</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.singleViewPageUid>
+                        <TCEforms>
+                            <label>Single View Page</label>
+                            <config>
+                                <type>group</type>
+                                <internal_type>db</internal_type>
+                                <allowed>pages</allowed>
+                                <size>1</size>
+                                <maxitems>1</maxitems>
+                                <minitems>0</minitems>
+                                <show_thumbs>1</show_thumbs>
+                            </config>
+                        </TCEforms>
+                    </settings.singleViewPageUid>
+                    <settings.listViewPageUid>
+                        <TCEforms>
+                            <label>List View Page</label>
+                            <config>
+                                <type>group</type>
+                                <internal_type>db</internal_type>
+                                <allowed>pages</allowed>
+                                <size>1</size>
+                                <maxitems>1</maxitems>
+                                <minitems>0</minitems>
+                                <show_thumbs>1</show_thumbs>
+                            </config>
+                        </TCEforms>
+                    </settings.listViewPageUid>
+                </el>
+            </ROOT>
+        </targetPages>
     </sheets>
 </T3DataStructure>

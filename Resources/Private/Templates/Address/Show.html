@@ -2,14 +2,16 @@
 
 <f:layout name="default"/>
 
+
 <f:section name="content">
     <f:switch expression="{settings.layout}">
         <f:defaultCase>
-
+            
             <f:if condition="{address}">
                 <f:render partial="Card" arguments="{address:address}"/>
-                <f:link.action action="list">Back</f:link.action>
+                <f:link.action action="list" pageUid="{settings.listViewPageUid}">Back</f:link.action>
             </f:if>
         </f:defaultCase>
     </f:switch>
 </f:section>
+
