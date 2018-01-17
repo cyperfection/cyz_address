@@ -23,6 +23,9 @@ namespace Cyz\CyzAddress\Domain\Repository;
 
 class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressRepository
 {
+
+    protected $defaultOrderings = array('sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING);
+
     function initializeObject()
     {
         /** @var \TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings $querySettings */

@@ -61,4 +61,4 @@ $tempCols = [
 $GLOBALS['TCA']['tt_address']['columns']['image']['config']['overrideChildTca']['types'] = $tempCols;
 
 
-
+$GLOBALS['TCA']['tt_address']['ctrl']['sortby'] = 'sorting';
