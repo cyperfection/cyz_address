@@ -23,6 +23,7 @@ $EM_CONF[$_EXTKEY] = [
     'category' => 'plugin',
     'author' => 'Luca Kredel',
     'author_email' => 'luca.kredel@cyperfection.de',
+    'author_company' => 'cyperfection gmbh',
     'state' => 'beta',
     'internal' => '',
     'uploadfolder' => '1',

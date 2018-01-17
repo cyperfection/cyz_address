@@ -26,7 +26,7 @@ Address List
         Allows to use fluid templates with tt_address
 
     :Keywords:
-        tt_address, fluid
+        tt_address, fluid, address
 
     :Copyright:
         2017
@@ -44,8 +44,6 @@ Address List
     :Rendered:
         |today|
 
-    :Github:
-        `cyperfection/cyz_address <https://github.com/cyperfection/cyz_address>`_
 
     The content of this document is related to TYPO3,
     a GNU/GPL CMS/Framework available from `www.typo3.org <https://typo3.org/>`__.
