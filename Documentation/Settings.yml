@@ -1,8 +1,8 @@
 conf.py:
   copyright: 2017-2018
   project: tt_address fluid
-  version: 0.4
-  release: 0.4.0
+  version: 0.5
+  release: 0.5.0
   html_theme_options:
     github_repository: cyperfection/cyz_address
     github_branch: master
