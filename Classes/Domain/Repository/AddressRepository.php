@@ -21,6 +21,8 @@ namespace Cyz\CyzAddress\Domain\Repository;
  */
 
 
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+
 class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressRepository
 {
 
@@ -55,6 +57,7 @@ class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressReposi
     {
         $query = $this->createQuery();
         $query->matching($query->in('uid', $uidlist));
+        $query->setOrderings($this->orderByKey('uid', $uidlist));
 
         return $query->execute();
     }
@@ -82,6 +85,19 @@ class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressReposi
 
 
         return $query->execute();
+    }
+
+    /**
+     * @param $key
+     * @param $uidlist
+     * @return array
+     */
+    protected function orderByKey($key, $uidlist) {
+        $order = array();
+        foreach ($uidlist as $uid) {
+            $order["$key={$uid}"] = QueryInterface::ORDER_DESCENDING;
+        }
+        return $order;
     }
 
 }
