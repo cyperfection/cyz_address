@@ -41,7 +41,6 @@ class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressReposi
     public function findInPidList($pidlist)
     {
         $query = $this->createQuery();
-        $query->setOrderings(FALSE);
         $query->matching($query->in('pid', $pidlist));
         
         return $query->execute();
@@ -101,15 +100,11 @@ class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressReposi
         if($sorting) {
             switch ($sorting) { 
                 case 'ASC':
-                    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($sorting, "asc");
-                    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($sortingColumn, "asc");
                     $query->setOrderings([
                         $sortingColumn => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
                     ]);
                     break;
                 case 'DESC':
-                    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($sorting, "desc");
-                    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($sortingColumn, "asc");
                     $query->setOrderings([
                         $sortingColumn => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
                     ]);
