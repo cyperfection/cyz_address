@@ -85,10 +85,17 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                 break;
             case 'startingpoint':
                 $pages = $this->settings['pages'];
+                $sorting = $this->settings['groupSorting'];
+                $sortingColumn = $this->settings['groupSortingColumn'];
 
                 if (!empty($pages)) {
                     $this->view->assign('addresses',
-                        $this->addressRepository->findInPidList(explode(',', $pages)));
+                        $this->addressRepository->findInPidList(
+                            explode(',', $pages),
+                            $sorting,
+                            $sortingColumn
+                        )
+                    );
                 } else {
                     $this->addFlashMessage(
                         'No pages selected',

@@ -36,12 +36,31 @@ class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressReposi
 
     /**
      * @param array [string] $pidlist
+     * @param string [string] $sorting
+     * @param string [string] $sortingColumn
      * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findInPidList($pidlist)
+    public function findInPidList($pidlist, $sorting = false, $sortingColumn = false)
     {
         $query = $this->createQuery();
         $query->matching($query->in('pid', $pidlist));
+
+        if($sorting && $sortingColumn) {
+            switch ($sorting) { 
+                case 'ASC':
+                    $query->setOrderings([
+                        $sortingColumn => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+                    ]);
+                    break;
+                case 'DESC':
+                    $query->setOrderings([
+                        $sortingColumn => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
+                    ]);
+                    break;
+                default:
+                    break;
+            }
+        }
         
         return $query->execute();
     }
@@ -97,7 +116,7 @@ class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressReposi
                 break;
         }
 
-        if($sorting) {
+        if($sorting && $sortingColumn) {
             switch ($sorting) { 
                 case 'ASC':
                     $query->setOrderings([
