@@ -138,12 +138,39 @@
                             </config>
                         </TCEforms>
                     </settings.groupSelectionConstraint>
+                    <settings.pages>
+                        <TCEforms>
+                            <label>
+                                LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.settings.pages
+                            </label>
+                            <displayCond>FIELD:settings.source:=:startingpoint</displayCond>
+                            <config>
+                                <type>group</type>
+                                <internal_type>db</internal_type>
+                                <allowed>pages</allowed>
+                                <size>3</size>
+                                <maxitems>22</maxitems>
+                                <minitems>0</minitems>
+                                <show_thumbs>1</show_thumbs>
+                                <wizards>
+                                    <suggest>
+                                        <type>suggest</type>
+                                    </suggest>
+                                </wizards>
+                            </config>
+                        </TCEforms>
+                    </settings.pages>
                     <settings.groupSorting>
                         <TCEforms>
                             <label>
                                 LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.settings.groupSorting
                             </label>
-                            <displayCond>FIELD:settings.source:=:categories</displayCond>
+                            <displayCond>
+                                <OR>
+                                    <numIndex index="0">FIELD:settings.source:=:categories</numIndex>
+                                    <numIndex index="1">FIELD:settings.source:=:startingpoint</numIndex>
+                                </OR>
+                            </displayCond>
                             <config>
                                 <type>select</type>
                                 <items type="array">
@@ -164,7 +191,12 @@
                             <label>
                                 LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.settings.groupSortingColumn
                             </label>
-                            <displayCond>FIELD:settings.source:=:categories</displayCond>
+                            <displayCond>
+                                <OR>
+                                    <numIndex index="0">FIELD:settings.source:=:categories</numIndex>
+                                    <numIndex index="1">FIELD:settings.source:=:startingpoint</numIndex>
+                                </OR>
+                            </displayCond>
                             <config>
                                 <type>select</type>
                                 <items type="array">
@@ -224,28 +256,6 @@
                             </config>
                         </TCEforms>
                     </settings.groupSortingColumn>
-                    <settings.pages>
-                        <TCEforms>
-                            <label>
-                                LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.settings.pages
-                            </label>
-                            <displayCond>FIELD:settings.source:=:startingpoint</displayCond>
-                            <config>
-                                <type>group</type>
-                                <internal_type>db</internal_type>
-                                <allowed>pages</allowed>
-                                <size>3</size>
-                                <maxitems>22</maxitems>
-                                <minitems>0</minitems>
-                                <show_thumbs>1</show_thumbs>
-                                <wizards>
-                                    <suggest>
-                                        <type>suggest</type>
-                                    </suggest>
-                                </wizards>
-                            </config>
-                        </TCEforms>
-                    </settings.pages>
                 </el>
             </ROOT>
         </sDEF>
