@@ -23,7 +23,6 @@ namespace Cyz\CyzAddress\Domain\Repository;
 
 class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressRepository
 {
-
     protected $defaultOrderings = array('sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING);
 
     function initializeObject()
@@ -42,28 +41,47 @@ class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressReposi
     public function findInPidList($pidlist)
     {
         $query = $this->createQuery();
+        $query->setOrderings(FALSE);
         $query->matching($query->in('pid', $pidlist));
-
+        
         return $query->execute();
     }
 
     /**
      * @param array [string] $uidlist
+     * @param string [string] $sorting
      * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findInUidList($uidlist)
+    public function findInUidList($uidlist, $sorting = false)
     {
         $query = $this->createQuery();
         $query->matching($query->in('uid', $uidlist));
+
+        if($sorting) {
+            switch ($sorting) {
+                case 'DESC':
+                    $query->setOrderings([
+                        'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
+                    ]);
+                    break;
+                default:
+                    $query->setOrderings([
+                        'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+                    ]);
+                    break;
+            }
+        }
 
         return $query->execute();
     }
 
     /**
      * @param array [string] $categories
+     * @param string [string] $sorting
+     * @param string [string] $sortingColumn
      * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findInCategories($categories, $logicalConstraint)
+    public function findInCategories($categories, $logicalConstraint, $sorting = false, $sortingColumn = false)
     {
         $query = $this->createQuery();
 
@@ -80,8 +98,27 @@ class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressReposi
                 break;
         }
 
+        if($sorting) {
+            switch ($sorting) { 
+                case 'ASC':
+                    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($sorting, "asc");
+                    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($sortingColumn, "asc");
+                    $query->setOrderings([
+                        $sortingColumn => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+                    ]);
+                    break;
+                case 'DESC':
+                    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($sorting, "desc");
+                    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($sortingColumn, "asc");
+                    $query->setOrderings([
+                        $sortingColumn => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
+                    ]);
+                    break;
+                default:
+                    break;
+            }
+        }
 
         return $query->execute();
     }
-
 }

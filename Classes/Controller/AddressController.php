@@ -38,10 +38,21 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         switch ($this->settings['source']) {
             case 'single':
                 $addresses = $this->settings['singleRecords'];
+                $sorting = $this->settings['singleSorting'];
 
                 if (!empty($addresses)) {
-                    $this->view->assign('addresses',
-                        $this->addressRepository->findInUidList(explode(',', $addresses)));
+                    if($sorting === "flexform") {
+                        $idList = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $addresses, true);
+                        foreach ($idList as $id) {
+                            $address = $this->addressRepository->findByIdentifier($id);
+                            if ($address) {
+                                $addressRecords[] = $address;
+                            }
+                        }
+                        $this->view->assign("addresses", $addressRecords);
+                    } else {
+                        $this->view->assign('addresses', $this->addressRepository->findInUidList(explode(',', $addresses)), $sorting);
+                    }
                 } else {
                     $this->addFlashMessage(
                         'No addresses selected',
@@ -52,12 +63,18 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                 break;
             case 'categories':
                 $selection = $this->settings['groupSelection'];
+                $sorting = $this->settings['groupSorting'];
+                $sortingColumn = $this->settings['groupSortingColumn'];
 
                 if (!empty($selection)) {
                     $this->view->assign('addresses',
                         $this->addressRepository->findInCategories(
                             explode(',', $selection),
-                            $this->settings['groupSelectionConstraint']));
+                            $this->settings['groupSelectionConstraint'],
+                            $sorting,
+                            $sortingColumn
+                        )
+                    );
                 } else {
                     $this->addFlashMessage(
                         'No categories selected',
