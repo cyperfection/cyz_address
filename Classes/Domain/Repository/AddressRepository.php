@@ -30,6 +30,7 @@ class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressReposi
         /** @var \TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings $querySettings */
         $querySettings = $this->objectManager->get(\TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings::class);
         $querySettings->setRespectStoragePage(FALSE);
+        $querySettings->setRespectSysLanguage(FALSE);
 
         $this->setDefaultQuerySettings($querySettings);
     }
@@ -134,5 +135,26 @@ class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressReposi
         }
 
         return $query->execute();
+    }
+
+    /**
+     * @param array [string] $uid
+     * @return 
+     */
+    public function getFileReferences($uid) {
+        $fileRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
+        $fileObjects = $fileRepository->findByRelation('tt_address', 'image', $uid);
+        // get Imageobject information
+        if(count($fileObjects) === 1) {
+            $files = $fileObjects;
+        } else {
+            $files = array();
+            foreach ($fileObjects as $key => $value) {
+                $files[$key]['reference'] = $value->getReferenceProperties();
+                $files[$key]['original'] = $value->getOriginalFile()->getProperties();
+            }
+        }
+
+        return $files;
     }
 }

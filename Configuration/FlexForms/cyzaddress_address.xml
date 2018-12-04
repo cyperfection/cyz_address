@@ -252,10 +252,6 @@
                                         <numIndex index="0">Country</numIndex>
                                         <numIndex index="1">country</numIndex>
                                     </numIndex>
-                                    <numIndex index="13" type="array">
-                                        <numIndex index="0">Name</numIndex>
-                                        <numIndex index="1">name</numIndex>
-                                    </numIndex>
                                 </items>
                             </config>
                         </TCEforms>

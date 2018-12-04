@@ -11,8 +11,8 @@
             <ul class="list-group">
                 <f:for each="{addresses}" as="address">
                     <li class="list-group-item">
-                        <f:render partial="Card" arguments="{address:address}"/>
-                        <f:link.action action="show" arguments="{address:address}"
+                        <f:render partial="Card" arguments="{address:address.address}"/>
+                        <f:link.action action="show" arguments="{address:address.address}"
                                        pageUid="{settings.singleViewPageUid}">
                             <f:translate
                                     key="LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.template.singleView"/>

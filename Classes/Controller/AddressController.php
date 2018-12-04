@@ -43,10 +43,14 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                 if (!empty($addresses)) {
                     if($sorting === "flexform") {
                         $idList = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $addresses, true);
+                        $i = 0;
                         foreach ($idList as $id) {
                             $address = $this->addressRepository->findByIdentifier($id);
+                            $files = $this->addressRepository->getFileReferences($id);
                             if ($address) {
-                                $addressRecords[] = $address;
+                                $addressRecords[$i]['address'] = $address;
+                                $addressRecords[$i]['files'] = $files;
+                                $i++;
                             }
                         }
                         $this->view->assign("addresses", $addressRecords);
@@ -67,14 +71,22 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                 $sortingColumn = $this->settings['groupSortingColumn'];
 
                 if (!empty($selection)) {
-                    $this->view->assign('addresses',
-                        $this->addressRepository->findInCategories(
-                            explode(',', $selection),
-                            $this->settings['groupSelectionConstraint'],
-                            $sorting,
-                            $sortingColumn
-                        )
+                    $categoryAdresses = $this->addressRepository->findInCategories(
+                        explode(',', $selection),
+                        $this->settings['groupSelectionConstraint'],
+                        $sorting,
+                        $sortingColumn
                     );
+
+                    $i = 0;
+                    foreach ($categoryAdresses as $address) {
+                        $files = $this->addressRepository->getFileReferences($address->getUid());
+                        $addressRecords[$i]['address'] = $address;
+                        $addressRecords[$i]['files'] = $files;
+                        $i++;
+                    }
+
+                    $this->view->assign('addresses', $addressRecords);
                 } else {
                     $this->addFlashMessage(
                         'No categories selected',
@@ -89,13 +101,21 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                 $sortingColumn = $this->settings['groupSortingColumn'];
 
                 if (!empty($pages)) {
-                    $this->view->assign('addresses',
-                        $this->addressRepository->findInPidList(
-                            explode(',', $pages),
-                            $sorting,
-                            $sortingColumn
-                        )
+                    $addresses = $this->addressRepository->findInPidList(
+                        explode(',', $pages),
+                        $sorting,
+                        $sortingColumn
                     );
+
+                    $i = 0;
+                    foreach ($addresses as $address) {
+                        $files = $this->addressRepository->getFileReferences($address->getUid());
+                        $addressRecords[$i]['address'] = $address;
+                        $addressRecords[$i]['files'] = $files;
+                        $i++;
+                    }
+
+                    $this->view->assign('addresses', $addressRecords);
                 } else {
                     $this->addFlashMessage(
                         'No pages selected',
@@ -111,7 +131,6 @@ class AddressController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                     AbstractMessage::ERROR,
                     FALSE);
         }
-
         $cObj = $this->configurationManager->getContentObject();
         $this->view->assign('data', $cObj->data);
     }
