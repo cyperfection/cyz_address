@@ -21,7 +21,7 @@ namespace Cyz\CyzAddress\Domain\Repository;
  */
 
 
-class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressRepository
+class AddressRepository extends \FriendsOfTYPO3\TtAddress\Domain\Repository\AddressRepository
 {
     protected $defaultOrderings = array('sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING);
 
