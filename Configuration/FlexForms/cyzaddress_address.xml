@@ -62,6 +62,31 @@
                             </config>
                         </TCEforms>
                     </settings.singleRecords>
+                    <settings.singleSorting>
+                        <TCEforms>
+                            <label>
+                                LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.settings.singleSorting
+                            </label>
+                            <displayCond>FIELD:settings.source:=:single</displayCond>
+                            <config>
+                                <type>select</type>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">ASC</numIndex>
+                                        <numIndex index="1">ASC</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">DESC</numIndex>
+                                        <numIndex index="1">DESC</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2" type="array">
+                                        <numIndex index="0">by Flexform</numIndex>
+                                        <numIndex index="1">flexform</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.singleSorting>
                     <settings.groupSelection>
                         <TCEforms>
                             <label>
@@ -135,6 +160,102 @@
                             </config>
                         </TCEforms>
                     </settings.pages>
+                    <settings.groupSorting>
+                        <TCEforms>
+                            <label>
+                                LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.settings.groupSorting
+                            </label>
+                            <displayCond>
+                                <OR>
+                                    <numIndex index="0">FIELD:settings.source:=:categories</numIndex>
+                                    <numIndex index="1">FIELD:settings.source:=:startingpoint</numIndex>
+                                </OR>
+                            </displayCond>
+                            <config>
+                                <type>select</type>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">ASC</numIndex>
+                                        <numIndex index="1">ASC</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">DESC</numIndex>
+                                        <numIndex index="1">DESC</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.groupSorting>
+                    <settings.groupSortingColumn>
+                        <TCEforms>
+                            <label>
+                                LLL:EXT:cyz_address/Resources/Private/Language/locallang_db.xlf:cyz_address.settings.groupSortingColumn
+                            </label>
+                            <displayCond>
+                                <OR>
+                                    <numIndex index="0">FIELD:settings.source:=:categories</numIndex>
+                                    <numIndex index="1">FIELD:settings.source:=:startingpoint</numIndex>
+                                </OR>
+                            </displayCond>
+                            <config>
+                                <type>select</type>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">Default</numIndex>
+                                        <numIndex index="1">sorting</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">First name</numIndex>
+                                        <numIndex index="1">first_name</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2" type="array">
+                                        <numIndex index="0">Last name</numIndex>
+                                        <numIndex index="1">last_name</numIndex>
+                                    </numIndex>
+                                    <numIndex index="3" type="array">
+                                        <numIndex index="0">Title</numIndex>
+                                        <numIndex index="1">title</numIndex>
+                                    </numIndex>
+                                    <numIndex index="4" type="array">
+                                        <numIndex index="0">E-Mail</numIndex>
+                                        <numIndex index="1">email</numIndex>
+                                    </numIndex>
+                                    <numIndex index="5" type="array">
+                                        <numIndex index="0">WWW</numIndex>
+                                        <numIndex index="1">www</numIndex>
+                                    </numIndex>
+                                    <numIndex index="6" type="array">
+                                        <numIndex index="0">Building</numIndex>
+                                        <numIndex index="1">building</numIndex>
+                                    </numIndex>
+                                    <numIndex index="7" type="array">
+                                        <numIndex index="0">Room</numIndex>
+                                        <numIndex index="1">room</numIndex>
+                                    </numIndex>
+                                    <numIndex index="8" type="array">
+                                        <numIndex index="0">Company</numIndex>
+                                        <numIndex index="1">company</numIndex>
+                                    </numIndex>
+                                    <numIndex index="9" type="array">
+                                        <numIndex index="0">Position</numIndex>
+                                        <numIndex index="1">position</numIndex>
+                                    </numIndex>
+                                    <numIndex index="10" type="array">
+                                        <numIndex index="0">City</numIndex>
+                                        <numIndex index="1">city</numIndex>
+                                    </numIndex>
+                                    <numIndex index="11" type="array">
+                                        <numIndex index="0">Region</numIndex>
+                                        <numIndex index="1">region</numIndex>
+                                    </numIndex>
+                                    <numIndex index="12" type="array">
+                                        <numIndex index="0">Country</numIndex>
+                                        <numIndex index="1">country</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.groupSortingColumn>
                 </el>
             </ROOT>
         </sDEF>

@@ -4,13 +4,28 @@
 <f:if condition="{address.image}">
     <f:then>
         <f:for each="{address.image}" as="image">
-            <f:image class="img-circle" image="{image}" alt=""/>
+            <div class="image">
+                <f:image class="image img-circle" image="{image}" alt="" maxWidth="270" additionalAttributes="{itemprop: 'image'}" />
+            </div>
         </f:for>
     </f:then>
     <f:else>
-        <f:if condition="{settings.defaultProfilePicture.active}">
-            <f:image src="{settings.defaultProfilePicture.path}" width="{settings.defaultProfilePicture.width}"
-                     height="{settings.defaultProfilePicture.height}" alt="default profile picture"/>
+        <f:if condition="{files}">
+            <f:then>
+                <f:for each="{files}" as="image">
+                    <div class="image">
+                        <f:image class="image img-circle" image="{image}" alt="" maxWidth="270" additionalAttributes="{itemprop: 'image'}" />
+                    </div>
+                </f:for>
+            </f:then>
+            <f:else>
+                <f:if condition="{settings.defaultProfilePicture.active}">
+                    <div class="image">
+                        <f:image src="{settings.defaultProfilePicture.path}" width="{settings.defaultProfilePicture.width}" maxWidth="270c"
+                            height="{settings.defaultProfilePicture.height}" alt="default profile picture" additionalAttributes="{itemprop: 'image'}"/>
+                    </div>
+                </f:if>
+            </f:else>
         </f:if>
     </f:else>
 </f:if>

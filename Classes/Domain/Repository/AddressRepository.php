@@ -21,9 +21,8 @@ namespace Cyz\CyzAddress\Domain\Repository;
  */
 
 
-class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressRepository
+class AddressRepository extends \FriendsOfTYPO3\TtAddress\Domain\Repository\AddressRepository
 {
-
     protected $defaultOrderings = array('sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING);
 
     function initializeObject()
@@ -31,39 +30,77 @@ class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressReposi
         /** @var \TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings $querySettings */
         $querySettings = $this->objectManager->get(\TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings::class);
         $querySettings->setRespectStoragePage(FALSE);
+        $querySettings->setRespectSysLanguage(FALSE);
 
         $this->setDefaultQuerySettings($querySettings);
     }
 
     /**
      * @param array [string] $pidlist
+     * @param string [string] $sorting
+     * @param string [string] $sortingColumn
      * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findInPidList($pidlist)
+    public function findInPidList($pidlist, $sorting = false, $sortingColumn = false)
     {
         $query = $this->createQuery();
         $query->matching($query->in('pid', $pidlist));
 
+        if($sorting && $sortingColumn) {
+            switch ($sorting) { 
+                case 'ASC':
+                    $query->setOrderings([
+                        $sortingColumn => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+                    ]);
+                    break;
+                case 'DESC':
+                    $query->setOrderings([
+                        $sortingColumn => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
+                    ]);
+                    break;
+                default:
+                    break;
+            }
+        }
+        
         return $query->execute();
     }
 
     /**
      * @param array [string] $uidlist
+     * @param string [string] $sorting
      * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findInUidList($uidlist)
+    public function findInUidList($uidlist, $sorting = false)
     {
         $query = $this->createQuery();
         $query->matching($query->in('uid', $uidlist));
+
+        if($sorting) {
+            switch ($sorting) {
+                case 'DESC':
+                    $query->setOrderings([
+                        'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
+                    ]);
+                    break;
+                default:
+                    $query->setOrderings([
+                        'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+                    ]);
+                    break;
+            }
+        }
 
         return $query->execute();
     }
 
     /**
      * @param array [string] $categories
+     * @param string [string] $sorting
+     * @param string [string] $sortingColumn
      * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findInCategories($categories, $logicalConstraint)
+    public function findInCategories($categories, $logicalConstraint, $sorting = false, $sortingColumn = false)
     {
         $query = $this->createQuery();
 
@@ -80,8 +117,44 @@ class AddressRepository extends \TYPO3\TtAddress\Domain\Repository\AddressReposi
                 break;
         }
 
+        if($sorting && $sortingColumn) {
+            switch ($sorting) { 
+                case 'ASC':
+                    $query->setOrderings([
+                        $sortingColumn => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+                    ]);
+                    break;
+                case 'DESC':
+                    $query->setOrderings([
+                        $sortingColumn => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
+                    ]);
+                    break;
+                default:
+                    break;
+            }
+        }
 
         return $query->execute();
     }
 
+    /**
+     * @param array [string] $uid
+     * @return 
+     */
+    public function getFileReferences($uid) {
+        $fileRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
+        $fileObjects = $fileRepository->findByRelation('tt_address', 'image', $uid);
+        // get Imageobject information
+        if(count($fileObjects) === 1) {
+            $files = $fileObjects;
+        } else {
+            $files = array();
+            foreach ($fileObjects as $key => $value) {
+                $files[$key]['reference'] = $value->getReferenceProperties();
+                $files[$key]['original'] = $value->getOriginalFile()->getProperties();
+            }
+        }
+
+        return $files;
+    }
 }

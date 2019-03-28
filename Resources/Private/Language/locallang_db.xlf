@@ -35,6 +35,16 @@
             <trans-unit id="cyz_address.settings.listViewPage">
                 <source>List View Page</source>
             </trans-unit>
+            <trans-unit id="cyz_address.settings.singleSorting">
+                <source>Sorting method</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.settings.groupSorting">
+                <source>Sorting method</source>
+            </trans-unit>
+            <trans-unit id="cyz_address.settings.groupSortingColumn">
+                <source>Column to sort</source>
+            </trans-unit>
+
 
             <!--Address Card Partial-->
             <trans-unit id="cyz_address.city">
@@ -70,6 +80,7 @@
             <trans-unit id="cyz_address.template.back">
                 <source>Back</source>
             </trans-unit>
+            
         </body>
     </file>
 </xliff>
